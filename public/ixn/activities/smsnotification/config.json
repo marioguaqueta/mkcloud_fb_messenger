@@ -1,0 +1,74 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "version": "2.0",
+    "icon": "images/jb-icon.png",
+    "iconSmall": "images/jb-icon.png"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "SMS Notification",
+      "description": "Envio de notificaciones SMS"
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments":[
+        { "phone": "{{Contact.Attribute.CanalSMS.IdNumeroTel}}"},
+        { "message": "{{Contact.Attribute.CanalSMS.mensaje}}"}
+      ],
+      "outArguments": [],
+      "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/execute/",
+      "verb": "POST",
+      "body": "",
+      "header": "",
+      "format": "json",
+      "useJwt": false,
+      "timeout": 30000
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "7da896e8-62a1-47b3-9c7c-d56913f75839",
+    "defaults": { "priority": "4"},
+    "save": {
+      "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/save/",
+      "body": "",
+      "verb": "POST",
+      "useJwt": false
+    },
+    "publish": {
+      "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/publish/",
+      "verb": "POST",
+      "body": "",
+      "useJwt": false
+    },
+    "validate": {
+      "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/validate/",
+      "verb": "POST",
+      "body": "",
+      "useJwt": false
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "outArguments": [
+          {
+            "key": {
+              "dataType": "Text",
+              "isNullable": false,
+              "access": "Visible",
+              "direction": "Out"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "edit": {
+    "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/",
+    "height": 400,
+    "width": 500
+  }
+}
